@@ -12,3 +12,6 @@ jmeter:
     - wget http://apache.osuosl.org//jmeter/binaries/apache-jmeter-5.1.1.tgz && tar xfz apache-jmeter-5.1.1.tgz && mv apache-jmeter-5.1.1 /opt/jmeter
   script:
     - bash docker-entrypoint.sh
+  artifacts:
+    paths:
+      - summary.csv
