@@ -1,3 +1,6 @@
+#!/bin/bash -xe
+
+export PATH=$PATH:/opt/jmeter
 GO_APPS=("api-server" "dns-server")
 APPS=("admin-server" $GO_APPS)
 
@@ -14,7 +17,8 @@ for i in ${GO_APPS[@]}; do
     popd
 done
 
-# Start Redis here
+/etc/init.d/mysql start
+/etc/init.d/redis-server start
 
 mysql -e "CREATE DATABASE lsofadmin"
 mysql -e "GRANT ALL ON lsofadmin.* to 'lsofadmin'@'localhost' identified by 'lsofadmin'"
