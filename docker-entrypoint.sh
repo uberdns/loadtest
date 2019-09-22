@@ -2,7 +2,7 @@
 
 export PATH=$PATH:/opt/jmeter
 GO_APPS=("api-server" "dns-server")
-APPS=("admin-server" $GO_APPS)
+APPS=("admin-server" "${GO_APPS[@]}")
 
 for i in ${APPS[@]}; do
     # if dir does not exist, clone it
