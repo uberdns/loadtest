@@ -1,0 +1,13 @@
+stages:
+  - loadtest
+
+jmeter:
+  stage: loadtest
+  image: golang:1.13
+  before_script:
+    - apt update
+    - apt install jmeter python3 python3-pip default-libmysqlclient-dev default-mysql-server redis
+    - /etc/init.d/mysql start
+    - /etc/init.d/redis-server start
+  script:
+    - bash docker-entrypoint.sh
