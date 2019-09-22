@@ -1,6 +1,6 @@
 #!/bin/bash -xe
 
-export PATH=$PATH:/opt/jmeter
+export PATH=$PATH:/opt/jmeter/bin
 GO_APPS=("api-server" "dns-server")
 APPS=("admin-server" "${GO_APPS[@]}")
 
