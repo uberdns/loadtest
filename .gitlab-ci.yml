@@ -12,6 +12,20 @@ jmeter:
     - wget http://apache.osuosl.org//jmeter/binaries/apache-jmeter-5.1.1.tgz && tar xfz apache-jmeter-5.1.1.tgz && mv apache-jmeter-5.1.1 /opt/jmeter
   script:
     - bash docker-entrypoint.sh
+    - jmeter -n -t loadtest.jmx
   artifacts:
     paths:
       - summary.csv
+
+dns:
+  stage: loadtest
+  image: golang:1.13
+  before_script:
+    - apt update
+    - apt install -y openjdk-11-jre python3 python3-pip default-libmysqlclient-dev default-mysql-server redis
+    - /etc/init.d/mysql start
+    - /etc/init.d/redis-server start
+    - wget http://apache.osuosl.org//jmeter/binaries/apache-jmeter-5.1.1.tgz && tar xfz apache-jmeter-5.1.1.tgz && mv apache-jmeter-5.1.1 /opt/jmeter
+  script:
+    - bash docker-entrypoint.sh
+    - go run dns_loadtest.go -count 1000 -threads 5 -target test.lsof.top
