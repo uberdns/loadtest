@@ -71,8 +71,13 @@ popd
 # Start GO_APPS
 for i in ${GO_APPS[@]}; do
     pushd $i
-    ./$i > $i.log &
+    ./$i > $i.log 2>&1 &
     popd
 done
 
 jmeter -n -t loadtest.jmx
+
+## Done with API stress test
+
+## Begin DNS server stress test
+go run dns_loadtest.go -count 1000 -threads 5 -target test.lsof.top
