@@ -87,7 +87,7 @@ func main() {
 	}
 
 	if totalRequestTime.Nanoseconds() != 0 {
-		avgRequestTime = time.Duration(totalRequestTime.Nanoseconds() / countMax)
+		avgRequestTime = time.Duration(totalRequestTime.Nanoseconds() / totalRequests)
 
 		fmt.Println("Total Requests: ", totalRequests)
 		fmt.Println("Attempted Requests: ", (countMax * int64(threadMax)))
