@@ -168,7 +168,7 @@
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">X-Api-Key</stringProp>
-              <stringProp name="Header.value">123</stringProp>
+              <stringProp name="Header.value">abc123</stringProp>
             </elementProp>
           </collectionProp>
         </HeaderManager>
