@@ -28,4 +28,4 @@ dns:
     - wget http://apache.osuosl.org//jmeter/binaries/apache-jmeter-5.1.1.tgz && tar xfz apache-jmeter-5.1.1.tgz && mv apache-jmeter-5.1.1 /opt/jmeter
   script:
     - bash docker-entrypoint.sh
-    - go run dns_loadtest.go -count 1000 -threads 5 -target test.lsof.top
+    - go run dns_loadtest.go -count 1000 -threads 10 -target test.lsof.top
