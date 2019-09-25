@@ -58,7 +58,7 @@ func performThreadLookup(target string, count int64, done chan bool) {
 		// execute all of the above and only exit if localDone is set to true
 		<-localDone
 	}
-
+	// wait for done to be true
 	done <- true
 }
 
