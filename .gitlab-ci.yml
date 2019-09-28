@@ -6,7 +6,7 @@ jmeter:
   image: golang:1.13
   before_script:
     - apt update
-    - apt install -y openjdk-11-jre python3 python3-pip default-libmysqlclient-dev default-mysql-server redis
+    - apt install -y openjdk-11-jre python3 python3-pip default-libmysqlclient-dev default-mysql-server redis graphviz
     - /etc/init.d/mysql start
     - /etc/init.d/redis-server start
     - wget http://apache.osuosl.org//jmeter/binaries/apache-jmeter-5.1.1.tgz && tar xfz apache-jmeter-5.1.1.tgz && mv apache-jmeter-5.1.1 /opt/jmeter
@@ -24,7 +24,7 @@ dns:
   image: golang:1.13
   before_script:
     - apt update
-    - apt install -y python3 python3-pip default-libmysqlclient-dev default-mysql-server redis
+    - apt install -y python3 python3-pip default-libmysqlclient-dev default-mysql-server redis graphviz
     - /etc/init.d/mysql start
     - /etc/init.d/redis-server start
   script:
