@@ -74,3 +74,7 @@ for i in ${GO_APPS[@]}; do
     ./$i > $i.log 2>&1 &
     popd
 done
+
+# pprof on golang services running in background
+go tool pprof --pdf localhost:6060/debug/pprof/profile?duration=180 &
+go tool pprof --pdf localhost:6061/debug/pprof/profile?duration=180 &
