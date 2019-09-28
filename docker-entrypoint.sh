@@ -76,5 +76,5 @@ for i in ${GO_APPS[@]}; do
 done
 
 # pprof on golang services running in background
-go tool pprof --pdf localhost:6060/debug/pprof/profile?duration=180 &
-go tool pprof --pdf localhost:6061/debug/pprof/profile?duration=180 &
+go tool pprof --svg localhost:6060/debug/pprof/profile?duration=180 &
+go tool pprof --svg localhost:6061/debug/pprof/profile?duration=180 &
