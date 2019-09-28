@@ -76,5 +76,12 @@ for i in ${GO_APPS[@]}; do
 done
 
 # pprof on golang services running in background
+while ! nc -z localhost 6060; do
+    sleep 0.1
+done
 go tool pprof --svg localhost:6060/debug/pprof/profile?duration=180 > dns-server.svg &
+
+while ! nc -z localhost 6061; do
+    sleep 0.1
+done
 go tool pprof --svg localhost:6061/debug/pprof/profile?duration=180 > api-server.svg &
