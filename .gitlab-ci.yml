@@ -30,7 +30,7 @@ dns:
   script:
     - bash docker-entrypoint.sh
     - go run dns_loadtest.go -count 1000 -threads 10 -target test.lsof.top
-    - for i in $(seq 1 30); do [ -f profile*.svg] || sleep 1; done
+    - for i in $(seq 1 30); do [ -f profile*.svg ] || sleep 1; done
   artifacts:
     paths:
       - '*.svg'
