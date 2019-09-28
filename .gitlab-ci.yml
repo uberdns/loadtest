@@ -16,7 +16,7 @@ jmeter:
   artifacts:
     paths:
       - summary.csv
-      - *.pdf
+      - '*.pdf'
 
 dns:
   stage: loadtest
@@ -31,4 +31,4 @@ dns:
     - go run dns_loadtest.go -count 1000 -threads 10 -target test.lsof.top
   artifacts:
     paths:
-      - *.pdf
+      - '*.pdf'
